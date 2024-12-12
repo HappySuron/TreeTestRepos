@@ -29,10 +29,26 @@ public class StateTree : MonoBehaviour
             omniscient.UseTokens(availablePath.tokenType, availablePath.tokensRequired);
             currentNode = targetNode;
             Debug.Log($"Перешли в узел: {currentNode.nodeName}");
+            //ShowAvailableActions(); // Показываем доступные действия
         }
         else
         {
             Debug.Log($"Недостаточно токенов для перехода в узел: {targetNode.nodeName}.");
+        }
+    }
+
+    // Метод для вывода доступных действий
+    public void ShowAvailableActions()
+    {
+        Debug.Log("Доступные действия:");
+        foreach (var path in currentNode.paths)
+        {
+            // Проверяем, доступен ли путь
+            if (path.pathStatus == "enabled" && currentNode.isInteractive)
+            {
+                // Если токены доступны для перехода, выводим текст
+                Debug.Log($"- {path.uiText} (Токен: {path.tokenType}, Требуется: {path.tokensRequired})");
+            }
         }
     }
 }

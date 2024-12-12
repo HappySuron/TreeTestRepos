@@ -6,15 +6,14 @@ public class KeyTree : StateTree
     {
         treeName = "KeyTree";
 
-        // Создаем узлы
-        Node keyAvailable = new Node("Ключ доступен");
-        Node keyTaken = new Node("Ключ взят");
-        Node keyTest = new Node("Ключ тест");
+        // Создаем узлы и указываем, можно ли с ними взаимодействовать
+        Node keyAvailable = new Node("Ключ доступен", true);
+        Node keyTaken = new Node("Ключ взят", true);
+        Node keyTest = new Node("Ключ тест", false);  // Этот узел нельзя выбрать
 
-        // Добавляем пути
-        keyAvailable.AddPath(new Path(keyTaken, "key", 0, "enabled"));
-
-        keyTaken.AddPath(new Path(keyTest, "key", 0, "enabled"));
+        // Добавляем пути с текстами для UI
+        keyAvailable.AddPath(new Path(keyTaken, "key", 0, "enabled", "Взять ключ"));
+        keyTaken.AddPath(new Path(keyTest, "key", 0, "enabled", "Использовать ключ"));
 
         // Заполняем список узлов
         nodes.Add(keyAvailable);

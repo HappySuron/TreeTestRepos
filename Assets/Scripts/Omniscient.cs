@@ -11,12 +11,15 @@ public class Omniscient : MonoBehaviour
     {
         // Инициализируем жетоны
         tokens["key"] = 0;
-        doorTree.MoveToNode("Дверь открыта", this);
+        doorTree.ShowAvailableActions();
+        keyTree.ShowAvailableActions();
+        // doorTree.MoveToNode("Дверь открыта", this);
         // Проверим взаимодействие
-        //keyTree.MoveToNode("Ключ взят", this);
-        keyTree.MoveToNode("Ключ тест", this);
-        tokens["key"] = 1; // Дадим игроку ключ
-        doorTree.MoveToNode("Дверь открыта", this);
+        // keyTree.MoveToNode("Ключ доступен", this);
+        // tokens["key"] = 1; // Дадим игроку ключ
+        // doorTree.MoveToNode("Дверь открыта", this);
+        // keyTree.MoveToNode("Ключ взят", this);
+        // keyTree.MoveToNode("Ключ тест", this);
     }
 
     // Проверка наличия токенов

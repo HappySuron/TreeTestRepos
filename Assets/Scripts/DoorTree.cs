@@ -11,7 +11,7 @@ public class DoorTree : StateTree
         Node doorOpen = new Node("Дверь открыта");
 
         // Добавляем пути
-        doorClosed.AddPath(new Path(doorOpen, "key", 1, "enabled"));
+        doorClosed.AddPath(new Path(doorOpen, "key", 1, "enabled", "Открыть дверь"));
 
         // Заполняем список узлов
         nodes.Add(doorClosed);
